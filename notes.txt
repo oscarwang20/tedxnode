@@ -1,0 +1,6 @@
+Node.js is
+- good for building real time applications
+- bad for large scale computations
+- blocking vs non-blocking
+- fullstack development environment
+- 
