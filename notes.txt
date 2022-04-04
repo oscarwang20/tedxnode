@@ -2,5 +2,7 @@ Node.js is
 - good for building real time applications
 - bad for large scale computations
 - blocking vs non-blocking
-- fullstack development environment
-- 
+- fullstack? development environment
+- make sure to explain the library dependencies and backend shenenagans 
+- app demo commpare to flask 
+- how does node make your life easier
