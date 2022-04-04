@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/stylesheet.css') }}">
+    <ul class="nav">
+        <li class="nav"><a class="nav" href="/">Home</a></li>
+        <li class="nav"><a class="nav" href="/logout">Logout</a></li>
+    </ul>
+    <meta charset="UTF-8">
+    <title>Edit Page</title>
+</head>
+<body>
+    <h1>Story Editing</h1>
+    <h3 class="story-text">You have chosen to edit the story titled "{{title}}" which currently ends as follows:</h3>
+    <p>
+        {{ latest }}
+    </p>
+    <h3>Please enter your update to the story below:</h3>
+    <form action="/{{ story_id }}/edit" method="POST"> <!--- sends a get request to /_____ -->
+        {% if message %}
+        <p style="color:red">{{ message }}</p>
+        {% endif %}
+
+        <textarea name="contribution" cols="40" rows="5">{% if latest_update %}{{ latest_update }}{% endif %}</textarea>
+        <br>
+        <input type="submit" name="submit">
+    </form>
+
+</body>
+</html>
