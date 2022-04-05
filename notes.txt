@@ -6,3 +6,8 @@ Node.js is
 - make sure to explain the library dependencies and backend shenenagans 
 - app demo commpare to flask 
 - how does node make your life easier
+
+
+Express.js
+- templating and routing
+- flask equivalent but much more stuff for app structure
