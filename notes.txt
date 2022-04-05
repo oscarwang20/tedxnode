@@ -10,4 +10,4 @@ Node.js is
 
 Express.js
 - templating and routing
-- flask equivalent but much more stuff for app structure
+- flask equivalent but much more stuff for app stuff
