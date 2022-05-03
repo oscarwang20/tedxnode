@@ -20,7 +20,7 @@ const server = http.createServer((req, res) => {
     if (req.url === "/"){
         fs.readFile('index.html', (err, data) => {
             res.writeHead(200, {'Content-Type': 'text/html'});
-            res.write(data);
+            res.write(data); 
             return res.end();
         });
     }
@@ -37,7 +37,7 @@ const server = http.createServer((req, res) => {
         });
     }
     if (req.url === "/htmlfile"){
-        fs.readFile('index.html', (err, data) => {
+        fs.readFile('windowobject.html', (err, data) => {
             res.writeHead(200, {'Content-Type': 'text/html'});
             res.write(data);
             return res.end();
