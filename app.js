@@ -1,5 +1,4 @@
-//main module
-
+//loading in http,url and filesystem module. 
 const http = require('http');
 const fs = require('fs');
 // event emitter
@@ -19,8 +18,11 @@ logger.log('new message');
 const server = http.createServer((req, res) => {
     //var addy = url.parse(req.url)
     if (req.url === "/"){
-        res.write('Hello World');
-        res.end();
+        fs.readFile('index.html', (err, data) => {
+            res.writeHead(200, {'Content-Type': 'text/html'});
+            res.write(data);
+            return res.end();
+        });
     }
     if (req.url === "/eventlogger"){
         res.write("Event Tested");
