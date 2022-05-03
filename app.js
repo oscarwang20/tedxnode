@@ -17,7 +17,7 @@ logger.on('messageLogged', (arg) => {
 logger.log('new message');
 
 const server = http.createServer((req, res) => {
-    if (req.url === "/"){
+    if (req.url === "/") {
         res.write('Hello World');
         res.end();
     }
@@ -36,5 +36,5 @@ const server = http.createServer((req, res) => {
 });
 
 
-server.listen(3000);
-console.log('Listening on port 3000');
+server.listen(5000);
+console.log('Listening on port 5000');
