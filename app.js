@@ -1,48 +1,60 @@
+// loading in our own module
+const log = require('./log');
+
 //loading in http,url and filesystem module. 
 const http = require('http');
+const url = require('url');
 const fs = require('fs');
-// event emitter
-const EventEmitter = require('events');
-
-const Logger = require('./logger');
-const logger = new Logger();
-
-//a listener
-// => arrow function es6
-logger.on('messageLogged', (arg) => {
-    console.log('message logged', arg)
-})
-
-logger.log('new message');
 
 const server = http.createServer((req, res) => {
-    //var addy = url.parse(req.url)
-    if (req.url === "/"){
-        fs.readFile('index.html', (err, data) => {
-            res.writeHead(200, {'Content-Type': 'text/html'});
-            res.write(data); 
-            return res.end();
-        });
-    }
-    if (req.url === "/eventlogger"){
-        res.write("Event Tested");
-        logger.log('event tested');
-        res.end();
-    }
-    if (req.url == "/whatisnode"){
-        fs.readFile('whatisnode.html', (err, data) => {
+    const urlObject = url.parse(req.url, true);
+    const filename = "." + urlObject.pathname + ".html";
+
+    fs.readFile(filename, (err, data) => {
+        
+        if (err){
+            if (req.url === "/"){
+                fs.readFile('index.html', function(err, data){
+                    if (err){
+                        res.writeHead(404, {'Content-Type': 'text/html'});
+                        res.write("404, not found"); 
+                        return res.end('404');
+                    }
+                    else {
+                        res.writeHead(200, {'Content-Type': 'text/html'});
+                        res.write(data); 
+                        return res.end();
+                    }
+                });
+            }
+            if (req.url == "/modules"){
+                fs.readFile('nodemodules.html', function(err, data){
+                    res.writeHead(200, {'Content-Type': 'text/html'});
+                    res.write(data);
+                    return res.end();
+                });
+            }
+            if (req.url === "/globalobject"){
+                fs.readFile('windowobject.html', function(err, data){
+                    res.writeHead(200, {'Content-Type': 'text/html'});
+                    res.write(data);
+                    return res.end();
+                });
+            }
+
+            if (req.url === "/log"){
+                res.write("Event Tested");
+                //using our own module called log
+                log('log success');
+                res.end();
+            }
+        }
+        else{
             res.writeHead(200, {'Content-Type': 'text/html'});
             res.write(data);
             return res.end();
-        });
-    }
-    if (req.url === "/htmlfile"){
-        fs.readFile('windowobject.html', (err, data) => {
-            res.writeHead(200, {'Content-Type': 'text/html'});
-            res.write(data);
-            return res.end();
-        });
-    }
+        }
+    });
 });
 
 

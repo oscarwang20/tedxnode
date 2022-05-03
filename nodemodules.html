@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <style>
+        ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          background-color: #333;
+        }
+        
+        li {
+          float: left;
+        }
+        
+        li a {
+          display: block;
+          color: white;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+        }
+        
+        li a:hover {
+          background-color: #111;
+        }
+        </style>
+
+    <head>
+        <title>Node Demo</title>
+        <style></style>
+    </head>
+    <body>
+
+        <ul>
+            <li><a class="active" href="/">What is Node</a></li>
+            <li><a href="/modules">Modules</a></li>
+            <li><a href="/globalobject">Global vs Window</a></li>
+            <li><a href="/log">Our own Module</a></li>
+          </ul>
+          
+        <h1>What is a module?</h1>
+        <p> Every file in node is a module and at the center of it all we have the main module (app.js for this demo). Every function and variable defined in a file is scoped to that file or module. Modules and the module system are fundamental parts of how Node.js applications are written and structured. In a module functionality is exported so that it can be included in other parts.</p>
+        <h2>Node.js has three types of modules:
+            
+            Built-in modules,
+            Local modules,
+            External modules,</h2>
+
+        <h2>Built-in modules</h2>
+        <h4>Built-in modules are distributed with Node.js itself. You load them using require.</h4>
+        <h2>Local modules</h2>
+        <h4>These are modules you write yourself, they are part of your actual code.  Local modules are how to reuse code in your project.</h4>
+        <h2>External modules</h2>
+        <h4>An external module is installed as a dependency, tracked in your package.json, and located in the node_modules/ directory.</h4>
+            
+    </body>
+</html>
