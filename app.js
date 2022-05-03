@@ -26,6 +26,13 @@ const server = http.createServer((req, res) => {
         logger.log('event tested');
         res.end();
     }
+    if (req.url == "/whatisnode"){
+        fs.readFile('whatisnode.html', (err, data) => {
+            res.writeHead(200, {'Content-Type': 'text/html'});
+            res.write(data);
+            return res.end();
+        });
+    }
     if (req.url === "/htmlfile"){
         fs.readFile('index.html', (err, data) => {
             res.writeHead(200, {'Content-Type': 'text/html'});
