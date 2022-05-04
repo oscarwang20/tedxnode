@@ -2,7 +2,7 @@
 <html lang="en">
 
     <style>
-        ul {
+        ul.nav {
           list-style-type: none;
           margin: 0;
           padding: 0;
@@ -10,11 +10,11 @@
           background-color: #333;
         }
         
-        li {
+        li.nav {
           float: left;
         }
         
-        li a {
+        li.nav a {
           display: block;
           color: white;
           text-align: center;
@@ -22,7 +22,7 @@
           text-decoration: none;
         }
         
-        li a:hover {
+        li.nav a:hover {
           background-color: #111;
         }
         </style>
@@ -33,16 +33,54 @@
     </head>
     <body>
 
-        <ul>
-            <li><a class="active" href="/">What is Node</a></li>
-            <li><a href="/modules">Modules</a></li>
-            <li><a href="/globalobject">Global vs Window</a></li>
-            <li><a href="/log">Our own Module</a></li>
+        <ul class="nav">
+            <li class="nav"><a class="active" href="/">What is Node</a></li>
+            <li class="nav"><a href="/modules">Modules</a></li>
+            <li class="nav"><a href="/globalobject">Global vs Window</a></li>
+            <li class="nav"><a href="/log">Our own Module</a></li>
 
           </ul>
           
         
         <h1>What is Node?</h1>
-        <p>...</p>
+        <p>Node.js is an open source runtime environment for executing JavaScript outside of a browser. Built on Google Chrome's JavaScript Engine (V8 Engine) by Ryan Dahl in 2009, it is most commonly used to build back-end services.</p>
+        <p>It can be used to build highly capacity web apps, APIs, and mobile apps as well.</p>
+        <h2>Node Architecture</h2>
+        <ul>
+          <li>Every browser has a JS engine that can take Javascript code and convert it into code that a machine can understand. Examples: Firefox has Spidermonkey, Chrome has their V8 engine</li>
+          <li>Example: We have the document.getElementById(); and in the browser we have the document/window object. These objects allow us to interact with the environment in which our JS code is running</li>
+          <li>Node also contains a JS engine to run JS but it also has certain unique objects that provide a separate environment for our code than the browser</li>
+          <li>
+            Instead of document.getElementById(); we have:
+            <ul>
+              <li>fs.readFile()</li>
+              <li>http.createServer()</li>
+            </ul>
+          </li>
+        </ul>
+        <div><img src="https://media.geeksforgeeks.org/wp-content/uploads/20211002235143/workinggfg.png" alt="node runtime"></div>
+        <h2>Event-driven, Asynchronous, Multithreading</h2>
+        <ul>
+          <li>The programming languages that we're used to--Python, JS, C, Java, etc--are all synchronous by default.</li>
+          <li>This means that they execute their processes one by one, or each line of code one after another.</li>
+          <li>Node also runs by an event driven, non-blocking architecture, which means that it does not need to finish processing a single request before moving onto another.</li>
+          <li>This runtime environment then allows for faster runtimes overall.</li>
+        </ul>
+        <div><img src="https://miro.medium.com/max/654/0*lXYrOarsNphVDRdP.png" alt="asynchronous diagram"></div>
+        <h2>npm</h2>
+        <ul>
+          <li>npm or Node Package Manager is is the JavaScript equivalent of Pip for python.</li>
+          <li>Like Pip, you can read about each package's features and documentations on the <a href="https://www.npmjs.com/package/cowsay">NPM docs website</a>.</li>
+          <li>
+            Here are some examples of commands you may use for npm:
+            <ul>
+              <li>npm ls</li>
+              <li>npm install cowsay</li>
+              <li>npm uninstall cowsay</li>
+              <li>npm update cowsay</li>
+              <li>npx cowsay Ary is late again</li>
+            </ul>
+          </li>
+        </ul>
     </body>
 </html>

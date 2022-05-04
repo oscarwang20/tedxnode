@@ -1,2 +1,6 @@
-// when the docuemnt loads, alert the user saying "hello world"
-console.log("hello world1!");
+let greeting = "Hello World!";
+let a = 1;
+let b = 2;
+let c = a + b;
+console.log(greeting + " " + c);
+
